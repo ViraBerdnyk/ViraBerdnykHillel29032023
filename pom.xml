@@ -27,7 +27,6 @@
             <version>7.8.0</version>
             <scope>test</scope>
         </dependency>
-        
     </dependencies>
 
     <build>
@@ -38,11 +37,13 @@
                 <version>3.1.0</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <!--                    <suiteXmlFile>testng.xml</suiteXmlFile>-->
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <systemProperties>
+                        <ur1>http:/test.site</ur1>
+                    </systemProperties>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
