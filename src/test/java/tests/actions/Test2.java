@@ -15,7 +15,7 @@ public class Test2 {
 
     @BeforeMethod
     public void beforeMethod() {
-        System.out.println("==== Before Method");
+        System.out.println("==== Before Method ====");
     }
 
     @AfterMethod

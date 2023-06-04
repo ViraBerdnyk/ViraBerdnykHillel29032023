@@ -5,12 +5,12 @@ import org.testng.annotations.AfterTest;
 
 public class AfterActions {
     @AfterSuite
-    public void aftrSuite() {
+    public void afterSuite() {
         System.out.println("==== After Suite ====");
     }
 
     @AfterTest
-    public void aftrTest() {
+    public void afterTest() {
         System.out.println("==== After Test ====");
     }
 }
