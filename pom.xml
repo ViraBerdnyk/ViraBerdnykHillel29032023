@@ -13,7 +13,11 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fakerVersion>1.0.2</fakerVersion>
+        <testNgVersion>7.8.0</testNgVersion>
+        <seleniumVersion>4.9.1</seleniumVersion>
+        <wdManagerVersion>5.3.3</wdManagerVersion>
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -24,10 +28,23 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.8.0</version>
+            <version>${testNgVersion}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${seleniumVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${wdManagerVersion}</version>
+        </dependency>
+
+
     </dependencies>
+
 
     <build>
         <plugins>
