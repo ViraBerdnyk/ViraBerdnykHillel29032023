@@ -12,17 +12,18 @@
     <!--            <package name="tests.parallelTests"/>-->
     <!--        </packages>-->
     <!--        &lt;!&ndash;        <parameter name="url" value="http://stage1"></parameter>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <parameter name="browserName" value="chrome"></parameter>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <parameter name="browserName" value="chrome"></parameter>&ndash;&gt;-->и
     <!--        &lt;!&ndash;        <classes>&ndash;&gt;-->
     <!--        &lt;!&ndash;            <class name="tests.ParamTest"/>&ndash;&gt;-->
     <!--        &lt;!&ndash;        </classes>&ndash;&gt;-->
     <!--    </test>-->
 
     <test name="Homework11Tests">
+        <parameter name="externalParameter" value="222"/>
         <packages>
             <package name="tests.Homework11"></package>
         </packages>
-        <parameter name="externalParameter" value="222"/>
+
         <classes>
             <class name="tests.Homework11.Test007"/>
         </classes>
