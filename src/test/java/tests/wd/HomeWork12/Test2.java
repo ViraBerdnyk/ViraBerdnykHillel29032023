@@ -6,52 +6,54 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import ua.hillel.pages.LoginPage;
+import ua.hillel.pages.MainPage;
+import ua.hillel.pages.SecurePage;
 
 public class Test2 {
+    private WebDriver driver;
+
+    @BeforeClass
+    public void setUp() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+    }
+
     @Test
     public void testSuccessfulLogin() {
-        WebDriverManager.chromedriver();
-        WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/login");
 
-
-        WebElement usernameField = driver.findElement(By.id("username"));
-        WebElement passwordField = driver.findElement(By.id("password"));
-
-
-        usernameField.sendKeys("tomsmith");
-        passwordField.sendKeys("SuperSecretPassword!");
-
-        WebElement loginButton = driver.findElement(By.cssSelector("button"));
-        loginButton.click();
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setUsername("tomsmith")
+                .setPassword("SuperSecretPassword!")
+                .clickLoginButton();
 
         WebElement successMessage = driver.findElement(By.id("flash"));
         Assert.assertTrue(successMessage.getText().contains("You logged into a secure area!"));
-
-        driver.quit();
     }
 
     @Test
     public void testUnsuccessfulLogin() {
-        WebDriverManager.chromedriver();
-        WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/login");
 
-        WebElement usernameField = driver.findElement(By.id("username"));
-        WebElement passwordField = driver.findElement(By.id("password"));
-
-        usernameField.sendKeys("wrongusername");
-        passwordField.sendKeys("wrongpassword");
-
-        WebElement loginButton = driver.findElement(By.cssSelector("button"));
-        loginButton.click();
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setUsername("wrongusername")
+                .setPassword("wrongpassword")
+                .clickLoginButton();
 
         WebElement errorMessage = driver.findElement(By.id("flash"));
         Assert.assertTrue(errorMessage.getText().contains("Your username is invalid!"));
+    }
 
-        driver.quit();
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
-
 

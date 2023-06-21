@@ -5,30 +5,38 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import ua.hillel.pages.CheckboxesPage;
+import ua.hillel.pages.MainPage;
 
 import java.util.List;
 
 @Test
 
 public class Test3 {
-    @Test
+    private WebDriver driver;
+
+    @BeforeClass
+    public void setUp() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+    }
+
     public void testSuccessfulLogin() {
-        WebDriverManager.chromedriver();
-        WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/checkboxes");
 
-        List<WebElement> checkboxes = driver.findElements(By.cssSelector("input[type='checkbox']"));
+        CheckboxesPage checkboxesPage = new CheckboxesPage(driver);
+        checkboxesPage.toggleCheckboxes();
+    }
 
-
-        for (WebElement checkbox : checkboxes) {
-            System.out.println("Initial state: " + checkbox.isSelected());
-            checkbox.click();
-            System.out.println("State after click: " + checkbox.isSelected());
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
         }
-
-        driver.quit();
     }
 }
-
 
