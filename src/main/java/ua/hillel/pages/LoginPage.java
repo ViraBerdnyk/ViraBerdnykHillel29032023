@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 import java.util.List;
@@ -27,14 +29,16 @@ public class LoginPage extends BasePage {
     List<WebElement> list;
 
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
         PageFactory.initElements(driver, this);
+        webDriverWait.until(ExpectedConditions.visibilityOf(loginButton));
+
     }
 
     public LoginPage setUsername(String username) {
         setFieldValue(usernameInput, username);
         return this;
+
     }
 
     public LoginPage setPassword(String password) {
@@ -44,7 +48,7 @@ public class LoginPage extends BasePage {
 
     public SecurePage clickLoginButton() {
         clickButton(loginButton);
-        return new SecurePage(driver);
+        return new SecurePage();
     }
 
     public LoginPage loginWithInvalidCreds() {

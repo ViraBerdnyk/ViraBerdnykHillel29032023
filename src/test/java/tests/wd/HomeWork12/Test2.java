@@ -27,7 +27,7 @@ public class Test2 {
     public void testSuccessfulLogin() {
         driver.get("https://the-internet.herokuapp.com/login");
 
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage();
         loginPage.setUsername("tomsmith")
                 .setPassword("SuperSecretPassword!")
                 .clickLoginButton();
@@ -40,7 +40,7 @@ public class Test2 {
     public void testUnsuccessfulLogin() {
         driver.get("https://the-internet.herokuapp.com/login");
 
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage();
         loginPage.setUsername("wrongusername")
                 .setPassword("wrongpassword")
                 .clickLoginButton();
