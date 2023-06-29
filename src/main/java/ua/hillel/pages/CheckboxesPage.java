@@ -11,10 +11,6 @@ public class CheckboxesPage extends BasePage {
     @FindBy(css = "input[type='checkbox']")
     private List<WebElement> checkboxes;
 
-    public CheckboxesPage(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
-    }
 
     public void toggleCheckboxes() {
         for (WebElement checkbox : checkboxes) {

@@ -1,16 +1,23 @@
 package tests.login;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.webdriver.WebDriverBrowser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import ua.hillel.pages.MainPage;
+import ua.hillel.utils.DriverHolder;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BaseTest {
-    WebDriver driver;
+    protected WebDriver driver;
 
 //    @BeforeSuite
 //    public void  setDriver() {
@@ -37,10 +44,21 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp() {
-        driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+
+
+        ChromeOptions options = new ChromeOptions();
+        Map<String, Object> prefs = new HashMap<String, Object>();
+        prefs.put("download.default_directory", new File("target/downloads").getAbsolutePath());
+        options.setExperimentalOption("prefs", prefs);
+
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get("https://the-internet.herokuapp.com/");
+
+        DriverHolder.setDriver(driver);
+
     }
+
 
     @AfterClass(alwaysRun = true)
     public void cleanUp() {
@@ -49,6 +67,6 @@ public class BaseTest {
 
     public MainPage openApp() {
         driver.get("https://the-internet.herokuapp.com/");
-        return new MainPage(driver);
+        return new MainPage();
     }
 }

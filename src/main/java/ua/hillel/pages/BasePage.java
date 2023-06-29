@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ua.hillel.utils.DriverHolder;
 
 import java.time.Duration;
 
@@ -16,8 +17,8 @@ public class BasePage {
     protected JavascriptExecutor javascriptExecutor;
 
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
+    public BasePage() {
+        this.driver = DriverHolder.getDriver();
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         actions = new Actions(driver);
         javascriptExecutor = (JavascriptExecutor) driver;

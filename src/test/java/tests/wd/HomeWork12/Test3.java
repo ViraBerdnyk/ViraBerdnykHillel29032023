@@ -28,7 +28,7 @@ public class Test3 {
     public void testSuccessfulLogin() {
         driver.get("https://the-internet.herokuapp.com/checkboxes");
 
-        CheckboxesPage checkboxesPage = new CheckboxesPage(driver);
+        CheckboxesPage checkboxesPage = new CheckboxesPage();
         checkboxesPage.toggleCheckboxes();
     }
 
