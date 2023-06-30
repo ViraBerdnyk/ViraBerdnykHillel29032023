@@ -1,16 +1,16 @@
-package tests.actions;
+package tests.wd.actions;
 
 import org.testng.annotations.*;
 
-public class Test1 {
+public class Test2 {
     @BeforeClass
     public void beforeClass() {
-        System.out.println("==== Before Class Test1 ====");
+        System.out.println("==== Before Class Test2 ====");
     }
 
     @AfterClass
     public void afterClass() {
-        System.out.println("==== After Class Test1 ====");
+        System.out.println("==== After Class Test2 ====");
     }
 
     @BeforeMethod
@@ -25,11 +25,11 @@ public class Test1 {
 
     @Test
     public void Test1() {
-        System.out.println("==== Test 1 ====");
+        System.out.println("==== Test 3 ====");
     }
 
     @Test
     public void Test2() {
-        System.out.println("==== Test 2 ====");
+        System.out.println("==== Test 4 ====");
     }
 }

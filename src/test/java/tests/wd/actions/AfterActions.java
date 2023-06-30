@@ -1,4 +1,4 @@
-package tests.actions;
+package tests.wd.actions;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;

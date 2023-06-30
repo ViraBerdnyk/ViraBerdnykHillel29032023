@@ -1,4 +1,4 @@
-package tests.login;
+package tests.wd.login;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class IcorrectLoginTest {
+public class LoginTest {
     @Test
-    public void incorrectLoginTest() {
+    public void loginTest() {
         WebDriverManager.chromedriver().setup();
 
         WebDriver driver = new ChromeDriver();
@@ -23,13 +23,10 @@ public class IcorrectLoginTest {
         username.sendKeys("tomsmith");
         WebElement password = driver.findElement(By.id("password"));
         password.clear();
-        password.sendKeys("InvalidPassworddd");
+        password.sendKeys("SuperSecretPassword");
 
         driver.findElement(By.cssSelector(".radius")).click();
 
-        //invalid assert
-
         driver.quit();
     }
-
 }
