@@ -1,4 +1,4 @@
-package tests.login;
+package tests.wd.login;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

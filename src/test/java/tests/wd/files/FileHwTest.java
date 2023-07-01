@@ -1,10 +1,8 @@
 package tests.wd.files;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tests.login.BaseTest;
+import tests.wd.login.BaseTest;
 import ua.hillel.pages.DownloadPage;
 import ua.hillel.pages.MainPage;
 import ua.hillel.pages.UploadPage;
@@ -19,7 +17,7 @@ public class FileHwTest extends BaseTest {
     public void fileTest() throws IOException {
         MainPage mainPage = openApp();
 
-        
+
         DownloadPage downloadPage = mainPage.openDownloadPage();
         String downloadedFilePath = downloadPage.downloadFile("amar.txt");
 

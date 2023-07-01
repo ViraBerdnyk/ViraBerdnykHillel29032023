@@ -1,4 +1,4 @@
-package tests.login;
+package tests.wd.login;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.webdriver.WebDriverBrowser;
