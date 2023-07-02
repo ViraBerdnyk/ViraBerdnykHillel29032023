@@ -6,14 +6,21 @@ import com.codeborne.selenide.SelenideElement;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class DynamicLoadingPageHW {
     private SelenideElement startButton = $("#start button");
     private SelenideElement loadedText = $("#finish h4");
     private SelenideElement loadingText = $("#loading");
 
+    public void openDynamicLoadingPage(String pageUrl) {
+        open(pageUrl);
+    }
+
     public void startLoadingExample() {
         startButton.click();
+        startButton.shouldBe(Condition.disabled)
+                .shouldBe(Condition.enabled, Duration.ofSeconds(6));
     }
 
     public void waitForContent() {
