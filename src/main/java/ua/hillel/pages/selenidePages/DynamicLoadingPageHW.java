@@ -6,6 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class DynamicLoadingPageHW {
     private SelenideElement startButton = $("#start button");

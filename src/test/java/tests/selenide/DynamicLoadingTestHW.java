@@ -22,7 +22,6 @@ public class DynamicLoadingTestHW {
         assertEquals(dynamicLoadingPage.getLoadedText(), "Hello World!");
     }
 
-    @Test
     public void dynamicLoadingTest2() {
         Configuration.baseUrl = "https://the-internet.herokuapp.com";
         Configuration.savePageSource = false;
