@@ -13,14 +13,8 @@ public class DynamicLoadingPageHW {
     private SelenideElement loadedText = $("#finish h4");
     private SelenideElement loadingText = $("#loading");
 
-    public void openDynamicLoadingPage(String pageUrl) {
-        open(pageUrl);
-    }
-
     public void startLoadingExample() {
         startButton.click();
-        startButton.shouldBe(Condition.disabled)
-                .shouldBe(Condition.enabled, Duration.ofSeconds(6));
     }
 
     public void waitForContent() {

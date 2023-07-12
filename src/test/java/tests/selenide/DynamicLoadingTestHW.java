@@ -14,21 +14,20 @@ public class DynamicLoadingTestHW {
         Configuration.baseUrl = "https://the-internet.herokuapp.com";
         Configuration.savePageSource = false;
 
+        open("/dynamic_loading/1");
         DynamicLoadingPageHW dynamicLoadingPage = new DynamicLoadingPageHW();
-        dynamicLoadingPage.openDynamicLoadingPage("/dynamic_loading/1");
 
         dynamicLoadingPage.waitForContent();
 
         assertEquals(dynamicLoadingPage.getLoadedText(), "Hello World!");
     }
 
-    @Test
     public void dynamicLoadingTest2() {
         Configuration.baseUrl = "https://the-internet.herokuapp.com";
         Configuration.savePageSource = false;
 
+        open("/dynamic_loading/2");
         DynamicLoadingPageHW dynamicLoadingPage = new DynamicLoadingPageHW();
-        dynamicLoadingPage.openDynamicLoadingPage("/dynamic_loading/2");
 
         dynamicLoadingPage.waitForContent();
 

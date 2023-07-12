@@ -17,6 +17,10 @@
         <seleniumVersion>4.9.1</seleniumVersion>
         <wdManagerVersion>5.3.3</wdManagerVersion>
         <selenideVersion>6.15.0</selenideVersion>
+        <okHttpVersion>4.11.0</okHttpVersion>
+        <jsonVersion>20230618</jsonVersion>
+        <gsonVersion>2.10.1</gsonVersion>
+        <lombokVersion>1.18.28</lombokVersion>
     </properties>
 
 
@@ -58,6 +62,28 @@
             <artifactId>testng</artifactId>
             <version>7.8.0</version>
             <scope>test</scope>
+        </dependency>
+        <!--REST-->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${okHttpVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${jsonVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gsonVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombokVersion}</version>
+            <scope>provided</scope>
         </dependency>
 
 
