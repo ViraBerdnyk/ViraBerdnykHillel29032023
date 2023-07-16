@@ -98,7 +98,7 @@
                 <version>3.1.0</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/rest.testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemProperties>
                         <ur1>http:/test.site</ur1>
