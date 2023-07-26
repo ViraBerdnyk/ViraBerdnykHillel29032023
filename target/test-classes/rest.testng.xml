@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Rest Api Suite" verbose="1" parallel="false">
+
+    <test name="Api Test" parallel="false" thread-count="5">
+        <classes>
+            <class name="tests.rest.RestPostTest"></class>
+        </classes>
+    </test>
+
+</suite>

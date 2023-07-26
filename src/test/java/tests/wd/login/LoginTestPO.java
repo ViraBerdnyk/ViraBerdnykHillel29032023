@@ -10,11 +10,11 @@ public class LoginTestPO extends BaseTest {
     public void loginTest() {
 
         LoginPage loginPage = openApp().openAuthPage()
-                .setUsername("tomsmith1111")
-                .setPassword("SuperSecretPassword")
+                .setUsername("tomsmith")
+                .setPassword("SuperSecretPassword!")
                 .loginWithInvalidCreds();
 
-        Assert.assertTrue(loginPage.getErrorText().contains("Your username is invalid"));
+        Assert.assertTrue(loginPage.getErrorText().contains("Your username is invalid!"));
 
     }
 }
